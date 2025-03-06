@@ -11,13 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathMatchString = getQueryParam('pathToReplace') || '';
     const pathReplacementString = getQueryParam('replacementPath') || '';
 
+    console.log(pathMatchString)
+    console.log(pathReplacementString)
+    console.log(domainMatchString)
+
     // Select all <a> elements on the page
     document.querySelectorAll("a").forEach(link => {
         // Check if the href attribute contains the domain and path. 
         // The domain is included to make the match more specific, and not impact hrefs to other websites
         if (link.href.includes(domainMatchString + pathMatchString)) {
             // Replace the pathMatchString in the href with a new string (example '/posts')
+            console.log("here");
             link.href = link.href.replace(pathMatchString, pathReplacementString);
+            console.log(link.href);
         }
     });
 });
