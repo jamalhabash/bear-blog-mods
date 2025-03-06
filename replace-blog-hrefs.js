@@ -6,26 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
         return urlParams.get(name);
     }
 
+    const script = document.currentScript;
     // Get the 'domain' parameter from the query string
     // Default to ''
-    const domainMatchString = getQueryParam('domain') || ''; 
-    const pathMatchString = getQueryParam('pathToReplace') || '';
-    const pathReplacementString = getQueryParam('replacementPath') || '';
+    const domain = script.getAttribute('domain') || ''; 
+    const pathToReplace = script.getAttribute('pathToReplace') || '';
+    const replacementPath = script.getAttribute('replacementPath') || '';
 
-    console.log(getQueryParam('domain'));
-    console.log(pathMatchString);
-    console.log(pathReplacementString);
-    console.log(domainMatchString);
+    console.log(domain);
+    console.log(pathToReplace);
+    console.log(replacementPath);
 
     // Select all <a> elements on the page
     document.querySelectorAll("a").forEach(link => {
         // Check if the href attribute contains the domain and path. 
         // The domain is included to make the match more specific, and not impact hrefs to other websites
-        if (link.href.includes("jamal.haba.sh" + "/blog") || link.href.startsWith("/blog")) {
+        if (link.href.includes(domain + pathToReplace) || link.href.startsWith(pathToReplace)) {
             // Replace the pathMatchString in the href with a new string (example '/posts')
-            console.log("here");
-            link.href = link.href.replace(pathMatchString, pathReplacementString);
-            console.log(link.href);
+            link.href = link.href.replace(pathToReplace, replacementPath);
         }
     });
 });
