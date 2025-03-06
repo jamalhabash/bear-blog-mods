@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("a").forEach(link => {
         // Check if the href attribute contains the domain and path. 
         // The domain is included to make the match more specific, and not impact hrefs to other websites
-        if (link.href.includes(domainMatchString + pathMatchString)) {
+        if (link.href.includes(domainMatchString + pathMatchString) || link.href.startsWith(pathMatchString)) {
             // Replace the pathMatchString in the href with a new string (example '/posts')
             console.log("here");
             link.href = link.href.replace(pathMatchString, pathReplacementString);
