@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathMatchString = getQueryParam('pathToReplace') || '';
     const pathReplacementString = getQueryParam('replacementPath') || '';
 
-    console.log(getQueryParam('domain');
+    console.log(getQueryParam('domain'));
     console.log(pathMatchString);
     console.log(pathReplacementString);
     console.log(domainMatchString);
