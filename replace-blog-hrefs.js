@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Function to get the value of a query parameter by name
     function getQueryParam(name) {
-        const urlParams = new URLSearchParams(window.location.search);
+        scriptUrl = URL(document.currentScript.src)
+        const urlParams = new URLSearchParams(scriptUrl.search);
         return urlParams.get(name);
     }
 
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pathMatchString = getQueryParam('pathToReplace') || '';
     const pathReplacementString = getQueryParam('replacementPath') || '';
 
-    console.log(getQueryParam('domain'));
+    console.log(getQueryParam('domain');
     console.log(pathMatchString);
     console.log(pathReplacementString);
     console.log(domainMatchString);
