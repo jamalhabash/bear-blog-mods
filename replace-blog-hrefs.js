@@ -1,12 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to get the value of a query parameter by name
-    function getQueryParam(name) {
-        scriptUrl = URL(document.currentScript.src)
-        const urlParams = new URLSearchParams(scriptUrl.search);
-        return urlParams.get(name);
-    }
-
     const script = document.currentScript;
+    console.log(script);
     // Get the 'domain' parameter from the query string
     // Default to ''
     const domain = script.getAttribute('domain') || ''; 
