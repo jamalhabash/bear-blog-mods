@@ -1,22 +1,16 @@
-thisScript = document.currentScript;
+const script = document.currentScript;
 
 document.addEventListener("DOMContentLoaded", function () {
-    const script = thisScript;
-    console.log(script);
-    // Get the 'domain' parameter from the query string
-    // Default to ''
+    // Get values from the <script> attributes, default to ''
     const domain = script.getAttribute('domain') || ''; 
-    const pathToReplace = script.getAttribute('pathToReplace') || '';
+    const pathToReplace = script.getAttribute('pathToReplace') || '/blog';
     const replacementPath = script.getAttribute('replacementPath') || '';
-
-    console.log(domain);
-    console.log(pathToReplace);
-    console.log(replacementPath);
 
     // Select all <a> elements on the page
     document.querySelectorAll("a").forEach(link => {
-        // Check if the href attribute contains the domain and path. 
-        // The domain is included to make the match more specific, and not impact hrefs to other websites
+        // Replace all instances of href to the /blog path.
+        // The match is made more specific by checking if the domain is included in the href
+        // There are places in bearblog where the domain is not in the href, in that case check if the href is just the path, which means it points to our website.
         if (link.href.includes(domain + pathToReplace) || link.href.startsWith(pathToReplace)) {
             // Replace the pathMatchString in the href with a new string (example '/posts')
             link.href = link.href.replace(pathToReplace, replacementPath);
