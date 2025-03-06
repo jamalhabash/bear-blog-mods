@@ -1,5 +1,7 @@
+thisScript = document.currentScript;
+
 document.addEventListener("DOMContentLoaded", function () {
-    const script = document.currentScript;
+    const script = thisScript;
     console.log(script);
     // Get the 'domain' parameter from the query string
     // Default to ''
