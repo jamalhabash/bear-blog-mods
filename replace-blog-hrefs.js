@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // The domain is included to make the match more specific, and not impact hrefs to other websites
         if (link.href.includes(domainMatchString + pathMatchString)) {
             // Replace the pathMatchString in the href with a new string (example '/posts')
-            link.href = link.href.replace(pathMatchString, replacementPath);
+            link.href = link.href.replace(pathMatchString, pathReplacementString);
         }
     });
 });
