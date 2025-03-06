@@ -1,10 +1,10 @@
-const script = document.currentScript;
+const thisScript = document.currentScript;
 
 document.addEventListener("DOMContentLoaded", function () {
     // Get values from the <script> attributes, default to ''
-    const domain = script.getAttribute('domain') || ''; 
-    const pathToReplace = script.getAttribute('pathToReplace') || '/blog';
-    const replacementPath = script.getAttribute('replacementPath') || '';
+    const domain = thisScript.getAttribute('domain') || ''; 
+    const pathToReplace = thisScript.getAttribute('pathToReplace') || '/blog';
+    const replacementPath = thisScript.getAttribute('replacementPath') || '';
 
     // Select all <a> elements on the page
     document.querySelectorAll("a").forEach(link => {
